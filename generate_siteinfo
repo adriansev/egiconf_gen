@@ -5,7 +5,7 @@ ARG=$1
 [[ ! -e "${ARG}" ]] && { echo "service cfg file not found"; exit 1; }
 
 NAME=$(basename ${ARG} .cfg )
-FILENAME="${NAME}.def"
+FILENAME="site-info_${NAME}.def"
 
 ## START CREATING KICKSTART FILE
 ( bash ${ARG} ) > ${FILENAME}

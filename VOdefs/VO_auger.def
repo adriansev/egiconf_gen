@@ -1,48 +1,55 @@
 #########
 # auger #
 #########
+# For each queue defined in QUEUES, define a _GROUP_ENABLE variable which is a space separated list of VO names and VOMS FQANs:
 # AUGER_GROUP_ENABLE="/auger/FNAL /auger/Role=Production /auger/Role=SoftwareManager"
 AUGER_GROUP_ENABLE="auger /auger/Role=Production"
 
 VO_AUGER_USERS=ldap://meta-ldap.cesnet.cz/ou=AUGER,o=AUGER,dc=eu-egee,dc=org
 
-## VO_AUGER_QUEUES="auger"
-## VO_AUGER_STORAGE_DIR=$CE_CLOSE_SE1_ACCESS_POINT/auger
-## VO_AUGER_MAP_WILDCARDS=no
-
-VO_AUGER_SW_DIR=/cvmfs/auger.egi.eu
+# Optional variable to define the default SE used by the VO. Define the SE hostname if you want a specific SE to be the default one.
+# If this variable is not defined, the first SE in SE_LIST will be used as the default one.
 VO_AUGER_DEFAULT_SE=seau.spacescience.ro
 
-VO_AUGER_VOMS_SERVERS="'vomss://voms1.grid.cesnet.cz:8443/voms/auger?/auger/' 'vomss://voms2.grid.cesnet.cz:8443/voms/auger?/auger/'"
+# Area on the WN for the installation of the experiment software. If on the WNs a predefined shared area has been mounted where
+# VO managers can pre-install software, then these variable should point to this area.
+# If instead there is not a shared area and each job must install the software, then this variables should contain a dot ( . ).
+VO_AUGER_SW_DIR=/cvmfs/auger.egi.eu
 
-##group vomss://voms2.grid.cesnet.cz:8443/voms/auger   .auger
+# Optional variable to define the Myproxy server supported by the VO. Define the Myproxy hostname if you want a specific Myproxy server.
+# If this variable is not defined PX_HOST will be used.
+VO_AUGER_PX_HOST=myproxy.cern.ch
 
-##VO_AUGER_VOMSES="'auger voms1.egee.cesnet.cz 15004 /DC=org/DC=terena/DC=tcs/OU=Domain Control Validated/CN=voms1.egee.cesnet.cz auger' 'auger voms2.grid.cesnet.cz 15004 /DC=org/DC=terena/DC=tcs/OU=Domain Control Validated/CN=voms2.grid.cesnet.cz auger'"
-## VO_AUGER_VOMSES="'auger voms2.grid.cesnet.cz 15004 /DC=org/DC=terena/DC=tcs/C=CZ/ST=Hlavni mesto Praha/L=Praha 6/O=CESNET/CN=voms2.grid.cesnet.cz auger' 'auger voms1.egee.cesnet.cz 15004 /DC=org/DC=terena/DC=tcs/OU=Domain Control Validated/CN=voms1.egee.cesnet.cz auger'"
-
-VO_AUGER_VOMSES="'auger voms2.grid.cesnet.cz 15004 /DC=org/DC=terena/DC=tcs/C=CZ/ST=Hlavni mesto Praha/L=Praha 6/O=CESNET/CN=voms2.grid.cesnet.cz auger' 'auger voms1.grid.cesnet.cz 15004 /DC=org/DC=terena/DC=tcs/C=CZ/ST=Hlavni mesto Praha/L=Praha 6/O=CESNET/CN=voms1.grid.cesnet.cz auger'"
-
-## VO_AUGER_VOMS_CA_DN="'/C=NL/O=TERENA/CN=TERENA eScience SSL CA'"
-VO_AUGER_VOMS_CA_DN="'/C=NL/ST=Noord-Holland/L=Amsterdam/O=TERENA/CN=TERENA eScience SSL CA 3' '/C=NL/ST=Noord-Holland/L=Amsterdam/O=TERENA/CN=TERENA eScience SSL CA 3'"
-
+# Optional variable to define a list of WMSs used by the VO. Define a space separated list of WMS hostnames. If this variable is not defined WMS_HOST will be used.
 VO_AUGER_WMS_HOSTS='wms1.grid.cesnet.cz wms2.grid.cesnet.cz'
 
+# Optional variable to define a list of LBs used by the VO. Define a space separated list of LB hostnames. If this variable is not defined LB_HOST will be used.
 VO_AUGER_LB_HOSTS='lb1.grid.cesnet.cz'
 
-##VO_AUGER_USER_HOME_PREFIX=/home/augerusers
+# Optional variable to define a list of RBs used by the VO. Define a space separated list of RB hostnames. If this variable is not defined RB_HOST will be used.
+# VO_AUGER_RBS="vo-rb1 [vo-rb2 [...]]"
 
+# This variable contains the vomses file parameters needed to contact a VOMS server.
+# Multiple VOMS servers can be given if the parameters are enclosed in single quotes.
+VO_AUGER_VOMSES="'auger voms1.grid.cesnet.cz 15004 /DC=cz/DC=cesnet-ca/O=CESNET/CN=voms1.grid.cesnet.cz auger' 'auger voms2.grid.cesnet.cz 15004 /DC=cz/DC=cesnet-ca/O=CESNET/CN=voms2.grid.cesnet.cz auger'"
 
-# Optional variable to define a list of WMSs used by the VO. Define a space separated list of WMS hostnames.
-# If this variable is not defined WMS_HOST will be used.
-# VO_<vo_name>_WMS_HOSTS="vo-wms1 [vo-wms2 [...]]"
+# DN of the CA that signs the VOMS server certificate. Multiple values can be given if enclosed in single quotes.
+# Note that there must be as many entries as in the VO_<vo-name>_VOMSES variable. There is a one to one relationship in the elements of both lists, so the order must be respected
+VO_AUGER_VOMS_CA_DN="'/DC=cz/DC=cesnet-ca/O=CESNET CA/CN=CESNET CA 3' '/DC=cz/DC=cesnet-ca/O=CESNET CA/CN=CESNET CA 3'"
+
+# A list of the VOMS servers used to create the DN grid-map file. Multiple values can be given if enclosed in single quotes.
+VO_AUGER_VOMS_SERVERS="'vomss://voms1.grid.cesnet.cz:8443/voms/auger?/auger/' 'vomss://voms2.grid.cesnet.cz:8443/voms/auger?/auger/'"
+
+# Optional variable to automatically add wildcards per FQAN in the LCMAPS gripmap file and groupmap file.
+# Set it to 'yes' if you want to add the wildcards in your VO. Do not define it or set it to 'no' if you do not want to configure wildcards in your VO.
+VO_AUGER_MAP_WILDCARDS=no
 
 # Optional variable to create a grid-mapfile with mappings to ordinary pool accounts, not containing mappings to special users.
 # - UNPRIVILEGED_MKGRIDMAP=no or undefined, will contain special users if defined in groups.conf
 # - UNPRIVILEGED_MKGRIDMAP=yes, will create a grid-mapfile containing only mappings to ordinary pool accounts.
-## VO_<vo_name>_UNPRIVILEGED_MKGRIDMAP=no
+# VO_AUGER_UNPRIVILEGED_MKGRIDMAP=no
 
 # gLite pool account home directory for the user accounts specified in USERS_CONF.
 # Define this variable if you would like to use a directory different than /home.
-# VO_<vo_name>_USER_HOME_PREFIX=/pool_account_home_dir
-
+VO_AUGER_USER_HOME_PREFIX=/home/egiusers/auger
 
