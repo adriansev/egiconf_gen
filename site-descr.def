@@ -1,0 +1,33 @@
+####################
+# Site description #
+####################
+MY_DOMAIN='spacescience.ro'
+
+# Human-readable name of your site
+SITE_NAME="RO-13-ISS"
+SITE_DESC="Institute of Space Science, Romania - gLite resources"
+SITE_LOC="Bucharest - Magurele, Romania"
+SITE_WEB="http://www.spacescience.ro"
+
+# Site coordinates
+# It is the position of your site north or south of the equator measured from -90. to 90. with positive values going north and negative values going south.
+SITE_LAT="44.34753"
+# It is the position of the site east or west of Greenwich, England measured from -180. to 180. with positive values going east and negative values going west.
+SITE_LONG="26.02906"
+
+# The contact e-mail of your site. A coma separated list of email addresses.
+SITE_EMAIL="glite@spacescience.ro"
+SITE_SECURITY_EMAIL="glite@spacescience.ro"
+SITE_SUPPORT_EMAIL="glite@spacescience.ro"
+
+SITE_OTHER_GRID="WLCG|EGI"
+SITE_OTHER_EGI_NGI="NGI_RO"
+SITE_OTHER_EGEE_SERVICE="prod"
+SITE_OTHER_EGEE_SERVICE="pps"
+SITE_OTHER_WLCG_TIER=2
+SITE_OTHER_WLCG_PARENT="CERN-PROD"
+SITE_OTHER_WLCG_NAME="RO-LCG"
+
+# Uncomment this variable if your site has an http proxy in order to reduce the load on the CA host
+# SITE_HTTP_PROXY="http-proxy.my.domain"
+
