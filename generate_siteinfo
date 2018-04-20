@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ARG=$1
+[[ -z "${ARG}" ]] && { echo "the argument should be the configuration for the service - ex: ui.cfg"; exit 1; }
+[[ ! -e "${ARG}" ]] && { echo "service cfg file not found"; exit 1; }
+
+NAME=$(basename ${ARG} .cfg )
+FILENAME="${NAME}.def"
+
+## START CREATING KICKSTART FILE
+( bash ${ARG} ) > ${FILENAME}
+

@@ -1,0 +1,48 @@
+#########
+# auger #
+#########
+# AUGER_GROUP_ENABLE="/auger/FNAL /auger/Role=Production /auger/Role=SoftwareManager"
+AUGER_GROUP_ENABLE="auger /auger/Role=Production"
+
+VO_AUGER_USERS=ldap://meta-ldap.cesnet.cz/ou=AUGER,o=AUGER,dc=eu-egee,dc=org
+
+## VO_AUGER_QUEUES="auger"
+## VO_AUGER_STORAGE_DIR=$CE_CLOSE_SE1_ACCESS_POINT/auger
+## VO_AUGER_MAP_WILDCARDS=no
+
+VO_AUGER_SW_DIR=/cvmfs/auger.egi.eu
+VO_AUGER_DEFAULT_SE=seau.spacescience.ro
+
+VO_AUGER_VOMS_SERVERS="'vomss://voms1.grid.cesnet.cz:8443/voms/auger?/auger/' 'vomss://voms2.grid.cesnet.cz:8443/voms/auger?/auger/'"
+
+##group vomss://voms2.grid.cesnet.cz:8443/voms/auger   .auger
+
+##VO_AUGER_VOMSES="'auger voms1.egee.cesnet.cz 15004 /DC=org/DC=terena/DC=tcs/OU=Domain Control Validated/CN=voms1.egee.cesnet.cz auger' 'auger voms2.grid.cesnet.cz 15004 /DC=org/DC=terena/DC=tcs/OU=Domain Control Validated/CN=voms2.grid.cesnet.cz auger'"
+## VO_AUGER_VOMSES="'auger voms2.grid.cesnet.cz 15004 /DC=org/DC=terena/DC=tcs/C=CZ/ST=Hlavni mesto Praha/L=Praha 6/O=CESNET/CN=voms2.grid.cesnet.cz auger' 'auger voms1.egee.cesnet.cz 15004 /DC=org/DC=terena/DC=tcs/OU=Domain Control Validated/CN=voms1.egee.cesnet.cz auger'"
+
+VO_AUGER_VOMSES="'auger voms2.grid.cesnet.cz 15004 /DC=org/DC=terena/DC=tcs/C=CZ/ST=Hlavni mesto Praha/L=Praha 6/O=CESNET/CN=voms2.grid.cesnet.cz auger' 'auger voms1.grid.cesnet.cz 15004 /DC=org/DC=terena/DC=tcs/C=CZ/ST=Hlavni mesto Praha/L=Praha 6/O=CESNET/CN=voms1.grid.cesnet.cz auger'"
+
+## VO_AUGER_VOMS_CA_DN="'/C=NL/O=TERENA/CN=TERENA eScience SSL CA'"
+VO_AUGER_VOMS_CA_DN="'/C=NL/ST=Noord-Holland/L=Amsterdam/O=TERENA/CN=TERENA eScience SSL CA 3' '/C=NL/ST=Noord-Holland/L=Amsterdam/O=TERENA/CN=TERENA eScience SSL CA 3'"
+
+VO_AUGER_WMS_HOSTS='wms1.grid.cesnet.cz wms2.grid.cesnet.cz'
+
+VO_AUGER_LB_HOSTS='lb1.grid.cesnet.cz'
+
+##VO_AUGER_USER_HOME_PREFIX=/home/augerusers
+
+
+# Optional variable to define a list of WMSs used by the VO. Define a space separated list of WMS hostnames.
+# If this variable is not defined WMS_HOST will be used.
+# VO_<vo_name>_WMS_HOSTS="vo-wms1 [vo-wms2 [...]]"
+
+# Optional variable to create a grid-mapfile with mappings to ordinary pool accounts, not containing mappings to special users.
+# - UNPRIVILEGED_MKGRIDMAP=no or undefined, will contain special users if defined in groups.conf
+# - UNPRIVILEGED_MKGRIDMAP=yes, will create a grid-mapfile containing only mappings to ordinary pool accounts.
+## VO_<vo_name>_UNPRIVILEGED_MKGRIDMAP=no
+
+# gLite pool account home directory for the user accounts specified in USERS_CONF.
+# Define this variable if you would like to use a directory different than /home.
+# VO_<vo_name>_USER_HOME_PREFIX=/pool_account_home_dir
+
+

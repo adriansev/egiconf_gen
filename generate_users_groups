@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# generate users.conf
+cat \
+users_groups/users_ops.conf \
+users_groups/users_dteam.conf \
+users_groups/users_alice.conf \
+users_groups/users_auger.conf \
+ > users.conf
+
+cat \
+users_groups/users_ops_short.conf \
+users_groups/users_dteam_short.conf \
+users_groups/users_alice_short.conf \
+users_groups/users_auger_short.conf \
+ > users_short.conf
+
+#########################################
+
+# generate groups.conf
+cat \
+users_groups/groups_ops.conf \
+users_groups/groups_dteam.conf \
+users_groups/groups_alice.conf \
+users_groups/groups_auger.conf \
+ > groups.conf
+
+cat \
+users_groups/groups_ops_short.conf \
+users_groups/groups_dteam_short.conf \
+users_groups/groups_alice_short.conf \
+users_groups/groups_auger_short.conf \
+ > groups_short.conf
+
