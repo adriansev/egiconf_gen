@@ -1,6 +1,7 @@
 ###################################
 # General configuration variables #
 ###################################
+MY_DOMAIN="spacescience.ro"
 
 SITE_INFO_VERSION=$(date +%d%m%Y_%k%M%S)
 INSTALL_ROOT=/opt
@@ -12,9 +13,18 @@ MYPROXY_SERVER="myproxy.cern.ch"
 PX_HOST="${MYPROXY_SERVER}"
 export MYPROXY_SERVER PX_HOST
 
-# List of top level BDIIs to support the automatic failover in the GFAL clients
-BDII_LIST="lcg-bdii.cern.ch:2170,lcgbdii.gridpp.rl.ac.uk:2170"
-export BDII_LIST
+################################
+# BDII configuration variables #
+################################
+
+# Hostname of the top level BDII
+export BDII_HOST=lcg-bdii.cern.ch
+
+# Uncomment this variable if you want to define a list of top level BDIIs to support the automatic failover in the GFAL clients
+export BDII_LIST="lcg-bdii.cern.ch:2170,lcgbdii.gridpp.rl.ac.uk:2170"
+
+# Hostname of the site BDII
+SITE_BDII_HOST=grid04.spacescience.ro
 
 export LCG_GFAL_INFOSYS=lcg-bdii.cern.ch:2170
 
