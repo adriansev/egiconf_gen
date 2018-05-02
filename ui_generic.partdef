@@ -2,7 +2,7 @@
 # General configuration variables #
 ###################################
 MY_DOMAIN="spacescience.ro"
-MY_NAME="$(/usr/bin/hostname -s)"
+MY_NAME="$(/bin/hostname -s)"
 
 SITE_INFO_VERSION=$(date +%d%m%Y_%k%M%S)
 INSTALL_ROOT=/opt

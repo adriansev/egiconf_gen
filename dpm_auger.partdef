@@ -64,7 +64,7 @@ DPM_XROOTD_SHAREDKEY="parolaxrootdfoartelungadarcicatrebuiesafiesimailunga"
 DPMFSIZE=100M
 
 # Enable DPM's HTTPS acces
-DPM_HTTPS="yes"
+DPM_HTTPS="no"
 
 # The port range used by RFIO operations  Two space separated number
 # RFIO_PORT_RANGE="20000 25000" ## default
@@ -76,7 +76,7 @@ DMLITE_TOKEN_PASSWORD="okmijnqazwsx"   # This password is used by dmlite to gene
 
 DPM_NFS="no"
 
-DPM_DAV="no"                        # Enable DAV access
+DPM_DAV="yes"                        # Enable DAV access
 DPM_DAV_NS_FLAGS="Write"            # Allow write access on the NS node
 DPM_DAV_DISK_FLAGS="Write"          # Allow write access on the disk nodes
 DPM_DAV_SECURE_REDIRECT="Off"       # Enable redirection from head to disk using plain HTTP. It can be On or Off.
