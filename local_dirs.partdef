@@ -1,0 +1,37 @@
+
+###################################
+# General configuration variables #
+###################################
+
+# List of the batch nodes hostnames and optionally the subcluster ID the WN belongs to. An example file is available in ${YAIM_ROOT}/glite/yaim/examples/wn-list.conf
+WN_LIST=${YAIM_ROOT}/glite/yaim/etc/wn-list.conf
+
+# List of unix users to be created in the service nodes. The format is as follows:
+# UID:LOGIN:GID1,GID2,...:GROUP1,GROUP2,...:VO:FLAG:
+# An example file is available in ${YAIM_ROOT}/glite/yaim/examples/users.conf For more information please check ${YAIM_ROOT}/glite/yaim/examples/users.conf.README
+USERS_CONF=${YAIM_ROOT}/glite/yaim/etc/users.conf
+
+# List of the local accounts which a user should be mapped to. The format is as follows:
+# "VOMS_FQAN":GROUP:GID:FLAG:[VO]
+# An example file is available in ${YAIM_ROOT}/glite/yaim/examples/groups.conf For more information please check ${YAIM_ROOT}/glite/yaim/examples/groups.conf.README
+# NOTE: comment out this variable if you want to specify a groups.conf per VO under the group.d/ directory.
+GROUPS_CONF=${YAIM_ROOT}/glite/yaim/etc/groups.conf
+
+# Uncomment this variable if you want to specify a local groups.conf
+# It is similar to GROUPS_CONF but used to specify a separate file where local accounts specific to the site are defined.
+# LOCAL_GROUPS_CONF=my_local_groups.conf
+
+# Uncomment this variable if you want to explicitely use pool accounts for special users when generating the grid-mapfile.
+# If not defined, YAIM will decide whether to use special pool accounts or not automatically
+# SPECIAL_POOL_ACCOUNTS=yes or no
+
+################################
+# User configuration variables #
+################################
+
+# Uncomment the following variables if you want to create system user accounts under a HOME directory different from /home.
+# Note: It is recommendable to use /var/lib/user_name as HOME directory for system users.
+# EDG_HOME_DIR=/var/lib/edguser
+# EDGINFO_HOME_DIR=/var/lib/edginfo
+# BDII_HOME_DIR=/var/lib/edguser
+

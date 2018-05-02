@@ -48,5 +48,5 @@ VO_OPS_MAP_WILDCARDS=no
 
 # gLite pool account home directory for the user accounts specified in USERS_CONF.
 # Define this variable if you would like to use a directory different than /home.
-VO_OPS_USER_HOME_PREFIX=/home/egiusers/ops
+# VO_OPS_USER_HOME_PREFIX=/home/egiusers/ops
 

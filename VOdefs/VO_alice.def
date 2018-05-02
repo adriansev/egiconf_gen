@@ -49,5 +49,5 @@ VO_ALICE_MAP_WILDCARDS=no
 
 # gLite pool account home directory for the user accounts specified in USERS_CONF.
 # Define this variable if you would like to use a directory different than /home.
-VO_ALICE_USER_HOME_PREFIX=/home/egiusers/alice
+# VO_ALICE_USER_HOME_PREFIX=/home/egiusers/alice
 

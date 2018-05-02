@@ -1,0 +1,94 @@
+## DPM passwords
+
+# MYSQL_PASSWORD=   ## to be taken from password file
+# DPM_DB_PASSWORD=  ## to be taken from password file
+# DPM_INFO_PASS=    ## to be taken from password file
+
+###############################
+# DPM configuration variables #
+###############################
+
+# Hostname of the DPM head node
+DPM_HOST=seau.spacescience.ro
+
+# Space separated list of SEs hostnames: SE_LIST="SE1 SE2 SE3"
+SE_LIST="grid02.spacescience.ro seau.spacescience.ro"
+
+# Space separated list of SE hosts from SE_LIST containing the export directory from the Storage Element and the mount directory common to the worker nodes that are part of the Computing Element.
+# If any of the SEs in SE_LIST does not support the mount concept, do not define anything for that SE in this variable. If this is the case for all the SEs in SE_LIST then put the value "none"
+#SE_MOUNT_INFO_LIST="[SE1:export_dir1,mount_dir1 [SE2:export_dir2,mount_dir2 [...]]|none]"
+SE_MOUNT_INFO_LIST="none"
+
+# Variable necessary to configure Gridview service client on the SEs. It sets the location and filename of the gridftp server logfile on
+# different types of SEs. Needed gridftp logfile for gridview is the netlogger file which contain info for each transfer (created with -Z/-log-transfer option for globus-gridftp-server).
+# Ex: DATE=20071206082249.108921 HOST=hostname.cern.ch PROG=globus-gridftp-server NL.EVNT=FTP_INFO START=20071206082248.831173 USER=atlas102 FILE=/storage/atlas/
+# BUFFER=0 BLOCK=262144 NBYTES=330 VOLUME=/ STREAMS=1 STRIPES=1 DEST=[127.0.0.1] TYPE=LIST CODE=226
+SE_GRIDFTP_LOGFILE=/var/log/dpm-gsiftp/dpm-gsiftp.log
+
+##############################################################################
+## DPM head settings
+DPM_DB_HOST=seau.spacescience.ro
+
+DPM_DB_USER="dpmuser"
+DPM_INFO_USER="dpminfo"
+
+##############################################################################
+##############################################################################
+
+# The DPM pool name
+DPMPOOL=auger
+
+# The DPM filesystems to mount
+DPM_FILESYSTEMS="${DPM_HOST}:/storage01 ${DPM_HOST}:/storage02 ${DPM_HOST}:/storage03 ${DPM_HOST}:/storage04 ${DPM_HOST}:/storage05 ${DPM_HOST}:/storage06 ${DPM_HOST}:/storage07 ${DPM_HOST}:/storage08 ${DPM_HOST}:/storage09"
+
+# Shared key that must be the same between head node and all disk servers if dpm-xrootd is installed
+DPM_XROOTD="yes"
+DPM_XROOTD_SHAREDKEY="parolaxrootdfoartelungadarcicatrebuiesafiesimailunga"
+
+##############################################################################
+## Common settings of DPM head and disk
+
+# The DPM DB name
+# DPM_DB="dpm_db" ## default
+
+# The DPNS DB name
+# DPNS_DB="cns_db" ## default
+
+# The DPNS server FQDN
+# DPNS_HOST=${DPM_HOST} ## default
+
+# The base directory after /dpm. Change it if you have several DPM head node in the same domain, to ensure the uniform name space. Ex.: 1st head node then /dpm/cern.ch/home 2nd head node /dpm/cern.ch/home2 directory name
+# DPNS_BASEDIR="home" ## default
+
+# The default disk space allocated per file on a DPM node.  Number followed by storage unit 200M
+DPMFSIZE=100M
+
+# Enable DPM's HTTPS acces
+DPM_HTTPS="yes"
+
+# The port range used by RFIO operations  Two space separated number
+# RFIO_PORT_RANGE="20000 25000" ## default
+
+##############################################################################
+
+DMLITE="yes"                           # Enable DMLite (Required!)
+DMLITE_TOKEN_PASSWORD="okmijnqazwsx"   # This password is used by dmlite to generate the tokens
+
+DPM_NFS="no"
+
+DPM_DAV="no"                        # Enable DAV access
+DPM_DAV_NS_FLAGS="Write"            # Allow write access on the NS node
+DPM_DAV_DISK_FLAGS="Write"          # Allow write access on the disk nodes
+DPM_DAV_SECURE_REDIRECT="Off"       # Enable redirection from head to disk using plain HTTP. It can be On or Off.
+
+DPM_SEMSG=no # config error
+
+
+# Means miscellaneous options for the xrootd disk server configuration file. It can be any number of options (separated by newlines).
+# At the moment it's documented for adding monitoring settings (which are VO specific), e.g. from https://svnweb.cern.ch/trac/lcgdm/wiki/Dpm/Xroot/Setup
+## DPM_XROOTD_DISK_MISC="xrootd.monitor all rbuff 32k auth flush 30s window 5s dest files info user io redir atl-prod05.slac.stanford.edu:9930
+## if exec xrootd
+## xrd.report atl-prod05.slac.stanford.edu:9931 every 60s all -buff -poll sync
+## fi"
+# DPM_XROOTD_DISK_MISC
+

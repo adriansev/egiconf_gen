@@ -1,7 +1,6 @@
 ####################
 # Site description #
 ####################
-MY_DOMAIN='spacescience.ro'
 
 # Human-readable name of your site
 SITE_NAME="RO-13-ISS"
